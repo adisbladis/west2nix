@@ -1,0 +1,22 @@
+[project]
+name = "west2nix"
+version = "0.1"
+description = "Build west workspaces with Nix"
+authors = [
+    {name = "adisbladis", email = "adisbladis@gmail.com"}
+]
+dependencies = [
+    "tomlkit",
+     "PyYAML",
+     "west",
+]
+
+[project.scripts]
+west2nix = "west2nix.main:main"
+
+[project.urls]
+Home = "https://github.com/adisbladis/west2nix"
+
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"

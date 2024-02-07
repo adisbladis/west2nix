@@ -1,0 +1,35 @@
+[manifest]
+group-filter = ["-babblesim", "-optional"]
+
+[[manifest.projects]]
+name = "zephyr"
+url = "https://github.com/zephyrproject-rtos/zephyr"
+revision = "3c25bfefabaf2ab2a56e208e7372f62373a9a376"
+clone-depth = 1
+west-commands = "scripts/west-commands.yml"
+
+[manifest.projects.nix]
+hash = "sha256-45b6RenIwudBfZHvNBSdAg4QV5muZ8EPAqjPbViclHA="
+
+[[manifest.projects]]
+name = "cmsis"
+url = "https://github.com/zephyrproject-rtos/cmsis"
+revision = "4b96cbb174678dcd3ca86e11e1f24bc5f8726da0"
+path = "modules/hal/cmsis"
+groups = ["hal"]
+
+[manifest.projects.nix]
+hash = "sha256-vzCbE69wCMLIjrSz1m8yspgVCto4JSm4Qg5zY/Ozg+k="
+
+[[manifest.projects]]
+name = "hal_nordic"
+url = "https://github.com/zephyrproject-rtos/hal_nordic"
+revision = "4362d0fcdbac80942212bffc999654beac7ab30e"
+path = "modules/hal/nordic"
+groups = ["hal"]
+
+[manifest.projects.nix]
+hash = "sha256-VJNN0xuGHX1s1VnBRraay5GuQo/7gBxJWFsZdQFxNQM="
+
+[manifest.self]
+path = "app"
