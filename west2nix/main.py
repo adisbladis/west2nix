@@ -23,7 +23,7 @@ def prefetch_project(project: dict):
         "--quiet",
         "--url", os.path.abspath(path),  # Use project_path for faster cloning
         "--rev", project["revision"],
-    ] + ["--fetch-submodules"] if submodules else [] , check=True, stdout=subprocess.PIPE)
+    ] + (["--fetch-submodules"] if submodules else []) , check=True, stdout=subprocess.PIPE)
 
     project["nix"] = {
         "hash": json.loads(proc.stdout)["hash"],
