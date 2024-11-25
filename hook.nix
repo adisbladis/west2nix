@@ -29,6 +29,7 @@ makeSetupHook
             src = fetchgit {
               inherit (project) url;
               inherit (project.nix) hash;
+              fetchSubmodules = project.submodules or false;
               rev = project.revision;
             };
           in
