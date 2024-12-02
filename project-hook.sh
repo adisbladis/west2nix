@@ -1,26 +1,7 @@
-function __west2nix_setupFakeGit {
-    echo Creating fake dummy git repo in "$1"
-
-    @git@ -C "$1" init
-    @git@ -C "$1" config user.email 'foo@example.com'
-    @git@ -C "$1" config user.name 'Foo Bar'
-    @git@ -C "$1" add -A
-    @git@ -C "$1" commit -m 'Fake commit'
-    @git@ -C "$1" checkout -b manifest-rev
-    @git@ -C "$1" checkout --detach manifest-rev
-}
-
-function __west2nix_copyProject {
-    mkdir -p $(dirname "$2")
-    cp -r "$1" "$2"
-    chmod +w "$2"
-    __west2nix_setupFakeGit "$2"
-}
-
 function __west2nix_copyProjectsHook {
     echo "Executing __west2nix_copyProjectsHook"
 
-    @copyProjects@
+    cp -r --no-preserve=mode @westDeps@/* .
 }
 
 
